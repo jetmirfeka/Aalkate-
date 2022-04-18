@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import Button from "../../atoms/Buttons/LoginOption";
 import styles from "./styles.js";
+import authContext from "../../../context";
 
 export default function LoginWithEmail({navigation}) {
   const [email, onChangeEmail] = useState(null);
   const [password, onChangePassword] = useState(null);
-  console.log(navigation);
+
+  const { setAuthenticated } = useContext(authContext);
+
+  const handleLogin = () => setAuthenticated(true);
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Email Address</Text>
@@ -27,7 +32,7 @@ export default function LoginWithEmail({navigation}) {
       <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}  style={styles.forgotPsw}>
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
-      <Button text="Sing in" background="#33346D" />
+      <Button onPress={handleLogin} text="Sing in" background="#33346D" />
       <View style={styles.creatAcc}>
         <Text style={styles.dontAcc}>Don’t have Account? </Text>
         <TouchableOpacity onPress={()=> navigation.navigate('CreateAccount')}>
@@ -35,8 +40,8 @@ export default function LoginWithEmail({navigation}) {
         </TouchableOpacity>
       </View>
       <Text style={styles.or}>OR</Text>
-      <Button logo='gmail' background="#33346D" text="Register with Google" />
-      <Button logo='facebook' background="#33346D" text="Register with Facebook" />
+      <Button  onPress={handleLogin} logo='gmail' background="#33346D" text="Register with Google" />
+      <Button  onPress={handleLogin} logo='facebook' background="#33346D" text="Register with Facebook" />
     </View>
   );
 }

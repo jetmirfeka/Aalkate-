@@ -1,9 +1,14 @@
 import "react-native-gesture-handler";
-import React, {useState } from "react";
+import React, { useState } from "react";
+import Context from "./src/context";
 import { screens, loginScreens } from "./src/navigation/stack";
 
 export default function App() {
-  const [logged, setLogged] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
 
-  return <>{!logged ? loginScreens() : screens()}</>;
+  return (
+    <Context.Provider value={{ authenticated, setAuthenticated }}>
+      {!authenticated ? loginScreens() : screens()}
+    </Context.Provider>
+  );
 }
