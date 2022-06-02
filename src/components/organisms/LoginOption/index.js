@@ -8,13 +8,17 @@ import logo from "../../../assets/images/logo.png";
 import Button from "../../atoms/Buttons/LoginOption";
 
 import authContext from "../../../context/index.js";
+import { facebook } from "../../../helpers/login";
 
-export default function LoginOption({navigation}) {
+export default function LoginOption({ navigation }) {
   const [isChecked, setChecked] = useState(false);
 
-  const {setAuthenticated} = useContext(authContext);
+  const { setAuthenticated } = useContext(authContext);
 
-  const handleLogin = () => setAuthenticated(true);
+  const handleLogin = () => {
+    facebook();
+    setAuthenticated(true);
+  };
 
   return (
     <View style={styles.container}>
@@ -39,11 +43,9 @@ export default function LoginOption({navigation}) {
             background="#Login via Email"
             logo="mail"
             text="Login via Email"
-            onPress={() =>
-              navigation.navigate('Login')
-            }
+            onPress={() => navigation.navigate("Login")}
           />
-          <Button />
+          <Button onPress={() => navigation.navigate("CreateAccount")} />
           <View style={styles.privacy}>
             <Checkbox
               style={styles.checkbox}
@@ -52,7 +54,8 @@ export default function LoginOption({navigation}) {
               color={isChecked ? "#FF8906" : undefined}
             />
             <Text style={styles.privacyText}>
-              By signing up, you are agreeing to our <Text style={styles.termcon}>Terms & Conditions</Text>
+              By signing up, you are agreeing to our{" "}
+              <Text style={styles.termcon}>Terms & Conditions</Text>
             </Text>
           </View>
         </View>

@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, Button } from "react-native";
+import { View, Image } from "react-native";
+import backgorund from '../assets/images/homepagebackgorund.png';
+import Home from '../components/organisms/Home/index';
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button title='Go to Profile' onPress={() => props.navigation.push("Profile")} />
-      <Button title='Go to Settings' onPress={() => props.navigation.push("Settings")} />
+    <View style={{ flex: 1}}>
+      <Image style={{ flex: 1,resizeMode:'cover'}} source={backgorund}/>
+      <Home navigation={navigation} />
     </View>
   );
 };
