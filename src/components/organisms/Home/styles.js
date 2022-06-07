@@ -12,7 +12,7 @@ export default StyleSheet.create({
     zIndex: 1,
     paddingTop: 20,
     flex: 1,
-    marginLeft:-15,
+    marginLeft: -15,
   },
 
   wrapper: {
@@ -25,18 +25,22 @@ export default StyleSheet.create({
     paddingVertical: 120,
     flex: 1,
   },
-
-  img: {
-    maxWidth: "80%",
-    maxHeight: 450,
-    resizeMode: "contain",
+  imgCont: {
     left: -100,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     justifyContent: "center",
     position: "absolute",
-    zIndex:1
+    maxWidth: "80%",
+    maxHeight: 450,
+    zIndex: 5,
+  },
+  img: {
+    maxWidth: "80%",
+    maxHeight: 450,
+    resizeMode: "contain",
+    zIndex: 8,
   },
   contentImg: {
     // flex: 1,
@@ -46,42 +50,50 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-start",
     marginLeft: 20,
+    zIndex: 2,
   },
   img1: {
     alignSelf: "flex-start",
+    zIndex: 10,
   },
   img2: {
     alignSelf: "flex-start",
     marginLeft: 117,
-    marginTop:-50
+    marginTop: -50,
+    zIndex: 10,
   },
   img3: {
     alignSelf: "flex-start",
     marginLeft: 210,
-    marginTop:-40,
-    marginBottom:20
-
+    marginTop: -40,
+    marginBottom: 20,
+    zIndex: 0,
   },
   img4: {
     alignSelf: "flex-start",
     marginLeft: 240,
-    marginBottom:20
+    marginBottom: 20,
+    zIndex: 10,
   },
   img5: {
     alignSelf: "flex-start",
     marginLeft: 230,
+    zIndex: 10,
   },
   img6: {
     alignSelf: "flex-start",
     marginLeft: 210,
+    zIndex: 10,
   },
   img7: {
     alignSelf: "flex-start",
     marginLeft: 117,
-    marginTop:0
+    marginTop: 0,
+    zIndex: 10,
   },
   img8: {
     alignSelf: "flex-start",
-    marginTop:-30
+    marginTop: -30,
+    zIndex: 10,
   },
 });

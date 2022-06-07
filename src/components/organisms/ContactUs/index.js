@@ -1,6 +1,6 @@
 import React from "react";
 import contactImg from "../../../assets/images/contactus.png";
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, Linking, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import styles from "./styles.js";
@@ -88,18 +88,15 @@ export default function ContactUs({ navigation }) {
               Our Social Media Links to Contact
             </Text>
             <View style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-              <View style={styles.iconSocial}>
+              <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://twitter.com/hashtag/aalkate')}} style={styles.iconSocial}>
                 <FontAwesome name="twitter" size={24} color="white" />
-              </View>
-              <View style={styles.iconSocial}>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://www.facebook.com/aalkate.fehmarn/')}} style={styles.iconSocial}>
                 <FontAwesome name="facebook" size={24} color="white" />
-              </View>
-              <View style={styles.iconSocial}>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={ ()=>{ Linking.openURL('https://www.instagram.com/aalkate.fehmarn/?hl=en')}} style={styles.iconSocial}>
                 <FontAwesome name="instagram" size={24} color="white" />
-              </View>
-              <View style={styles.iconSocial}>
-                <FontAwesome5 name="tiktok" size={24} color="white" />
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
